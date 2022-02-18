@@ -1,0 +1,48 @@
+# Simple configuration module
+package Constants;
+
+use warnings;
+use strict;
+
+use Exporter qw(import);
+
+# Change the values below according to your system settings
+
+# Configuration params (probably need to change them)
+
+# HTTP server to import mailbox using cURL (if standard import fails)
+use constant IMPORT_SERVER => 'https://localhost:7071';
+
+# auth params to use for HTTP server
+use constant ADMIN_USERNAME => 'admin';
+use constant ADMIN_PASSWORD => 'admin_secret_password';
+
+# LDAP server to search accounts at
+use constant LDAP => 'ldap://ldap.example.com:389';
+# LDAP DN to authorize on LDAP server
+use constant LDAP_BIND_DN => 'uid=zimbra,cn=admins,cn=zimbra';
+
+# All localization constants to use in CLI mode
+use constant LOCALE => 'LC_CTYPE=ru_RU.UTF-8; LANG=ru_RU.UTF8; LC_ALL=ru_RU.UTF8;';
+use constant LOCALE_LC_CTYPE => 'ru_RU.UTF-8';
+use constant LOCALE_LANG => 'ru_RU.UTF8';
+use constant LOCALE_LC_ALL => 'ru_RU.UTF8';
+
+# Temporary password to set for newly created account
+use constant TEMP_PWD => 'temporary_secret_password';
+
+# Basic system tools (probably no need to change them)
+use constant CURL => '/opt/zimbra/common/bin/curl';
+use constant LDAPMODIFY => '/opt/zimbra/common/bin/ldapmodify';
+use constant LDAPSEARCH => '/opt/zimbra/common/bin/ldapsearch';
+use constant ZMBOX => '/opt/zimbra/bin/zmmailbox';
+use constant ZMLOCALCONFIG => '/opt/zimbra/bin/zmlocalconfig';
+use constant ZMPROV => '/opt/zimbra/bin/zmprov';
+
+our @EXPORT = qw( IMPORT_SERVER ADMIN_USERNAME ADMIN_PASSWORD
+                  LDAP LDAP_BIND_DN LOCALE LOCALE_LC_CTYPE
+                  LOCALE_LANG LOCALE_LC_ALL TEMP_PWD CURL
+                  LDAPMODIFY LDAPSEARCH ZMBOX ZMLOCALCONFIG
+                  ZMPROV );
+
+1;
